@@ -1,4 +1,4 @@
-package com.example.cryptcurrencycomposesample
+package com.example.cryptcurrencycomposesample.presentaion
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,6 +1,7 @@
 package com.example.cryptcurrencycomposesample.data.remote.dto
 
 
+import com.example.cryptcurrencycomposesample.domain.model.CoinDetail
 import com.google.gson.annotations.SerializedName
 
 data class CoinDetailDto(
@@ -59,3 +60,16 @@ data class CoinDetailDto(
     @SerializedName("whitepaper")
     val whitepaper: Whitepaper
 )
+
+fun CoinDetailDto.toCoinDetail() : CoinDetail {
+    return CoinDetail(
+        coinId = id,
+        name = name,
+        description = description,
+        symbol = symbol,
+        rank = rank,
+        isActive = isActive,
+        tags = tags.map { it.name },
+        team = team
+    )
+}

@@ -53,7 +53,7 @@ data class CoinDetailDto(
     @SerializedName("tags")
     val tags: List<Tag>,
     @SerializedName("team")
-    val team: List<Team>,
+    val team: List<TeamMember>,
     @SerializedName("type")
     val type: String,
     @SerializedName("whitepaper")

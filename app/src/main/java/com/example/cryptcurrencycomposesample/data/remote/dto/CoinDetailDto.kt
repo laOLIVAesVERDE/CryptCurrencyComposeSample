@@ -58,7 +58,7 @@ data class CoinDetailDto(
     @SerializedName("type")
     val type: String,
     @SerializedName("whitepaper")
-    val whitepaper: Whitepaper
+    val whitePaper: Whitepaper
 )
 
 fun CoinDetailDto.toCoinDetail() : CoinDetail {

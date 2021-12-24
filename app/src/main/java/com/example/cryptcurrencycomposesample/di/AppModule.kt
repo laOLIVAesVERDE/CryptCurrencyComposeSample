@@ -2,6 +2,7 @@ package com.example.cryptcurrencycomposesample.di
 
 import com.example.cryptcurrencycomposesample.common.Constants
 import com.example.cryptcurrencycomposesample.data.remote.CoinPaprikaApi
+import com.example.cryptcurrencycomposesample.data.repository.CoinRepositoryImpl
 import com.example.cryptcurrencycomposesample.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
@@ -28,6 +29,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
-
+        return CoinRepositoryImpl(api)
     }
 }

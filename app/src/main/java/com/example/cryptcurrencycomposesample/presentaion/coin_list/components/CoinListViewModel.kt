@@ -3,10 +3,12 @@ package com.example.cryptcurrencycomposesample.presentaion.coin_list.components
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.cryptcurrencycomposesample.common.Resource
 import com.example.cryptcurrencycomposesample.domain.use_case.get_coins.GetCoinsUseCase
 import com.example.cryptcurrencycomposesample.presentaion.coin_list.CoinListState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -17,6 +19,9 @@ class CoinListViewModel @Inject constructor(
     private val _state = mutableStateOf(CoinListState())
     val state: State<CoinListState> = _state
 
+    init {
+        getCoins()
+    }
     private fun getCoins() {
         getCoinsUseCase().onEach { result ->
             when (result) {
@@ -32,6 +37,6 @@ class CoinListViewModel @Inject constructor(
                     _state.value = CoinListState(isLoading = true)
                 }
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

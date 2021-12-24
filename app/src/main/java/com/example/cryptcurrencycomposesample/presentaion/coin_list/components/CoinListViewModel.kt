@@ -1,5 +1,6 @@
 package com.example.cryptcurrencycomposesample.presentaion.coin_list.components
 
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.cryptcurrencycomposesample.domain.use_case.get_coins.GetCoinsUseCase
@@ -11,5 +12,6 @@ import javax.inject.Inject
 class CoinListViewModel @Inject constructor(
   private val getCoinsUseCase: GetCoinsUseCase
 ) : ViewModel() {
-  private val _state = mutableStateOf<CoinListState>(CoinListState())
+  private val _state = mutableStateOf(CoinListState())
+  val state: State<CoinListState> = _state
 }

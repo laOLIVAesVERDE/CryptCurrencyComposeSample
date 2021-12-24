@@ -2,6 +2,7 @@ package com.example.cryptcurrencycomposesample.di
 
 import com.example.cryptcurrencycomposesample.common.Constants
 import com.example.cryptcurrencycomposesample.data.remote.CoinPaprikaApi
+import com.example.cryptcurrencycomposesample.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +23,11 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(CoinPaprikaApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
+
     }
 }

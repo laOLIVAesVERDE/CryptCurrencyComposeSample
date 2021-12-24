@@ -12,24 +12,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
-  private val getCoinsUseCase: GetCoinsUseCase
+    private val getCoinsUseCase: GetCoinsUseCase
 ) : ViewModel() {
-  private val _state = mutableStateOf(CoinListState())
-  val state: State<CoinListState> = _state
+    private val _state = mutableStateOf(CoinListState())
+    val state: State<CoinListState> = _state
 
-  private fun getCoins() {
-    getCoinsUseCase().onEach { result ->
-      when (result) {
-        is Resource.Success -> {
+    private fun getCoins() {
+        getCoinsUseCase().onEach { result ->
+            when (result) {
+                is Resource.Success -> {
 
+                }
+                is Resource.Error -> {
+                    _state.value = CoinListState(
+                        error = result.message ?: "An unexpected error occurred"
+                    )
+                }
+                is Resource.Loading -> {
+                    _state.value = CoinListState(isLoading = true)
+                }
+            }
         }
-        is Resource.Error -> {
-
-        }
-        is Resource.Loading -> {
-          
-        }
-      }
     }
-  }
 }

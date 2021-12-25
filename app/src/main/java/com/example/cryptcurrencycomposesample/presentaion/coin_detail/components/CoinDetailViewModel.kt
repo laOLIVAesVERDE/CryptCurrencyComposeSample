@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CoinDetailViewModel @Inject constructor(
     private val getCoinUseCase: GetCoinUseCase,
-    private val savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _state = mutableStateOf(CoinDetailState())
     val state: State<CoinDetailState> = _state
@@ -33,7 +33,7 @@ class CoinDetailViewModel @Inject constructor(
         getCoinUseCase(coinId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = CoinDetailState(coinDetail = result.data ?: )
+                    _state.value = CoinDetailState(coinDetail = result.data)
                 }
                 is Resource.Error -> {
                     _state.value = CoinDetailState(

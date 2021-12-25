@@ -19,12 +19,12 @@ class CoinDetailViewModel @Inject constructor(
     private val getCoinUseCase: GetCoinUseCase
 ) : ViewModel() {
     private val _state = mutableStateOf(CoinDetailState())
-    val state: State<CoinListState> = _state
+    val state: State<CoinDetailState> = _state
 
     init {
-        getCoins()
+        getCoinDetail()
     }
-    private fun getCoins() {
+    private fun getCoinDetail(coinId: String) {
         getCoinUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {

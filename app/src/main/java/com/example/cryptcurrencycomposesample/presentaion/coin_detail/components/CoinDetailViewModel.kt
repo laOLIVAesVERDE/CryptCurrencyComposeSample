@@ -25,10 +25,10 @@ class CoinDetailViewModel @Inject constructor(
         getCoinDetail()
     }
     private fun getCoinDetail(coinId: String) {
-        getCoinUseCase().onEach { result ->
+        getCoinUseCase(coinId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = CoinListState(coins = result.data ?: emptyList())
+                    _state.value = CoinDetailState(coinDetail = result.data ?: )
                 }
                 is Resource.Error -> {
                     _state.value = CoinDetailState(

@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.cryptcurrencycomposesample.common.Constants
 import com.example.cryptcurrencycomposesample.common.Resource
 import com.example.cryptcurrencycomposesample.domain.use_case.get_coin.GetCoinUseCase
 import com.example.cryptcurrencycomposesample.domain.use_case.get_coins.GetCoinsUseCase
@@ -24,7 +25,9 @@ class CoinDetailViewModel @Inject constructor(
     val state: State<CoinDetailState> = _state
 
     init {
-        getCoinDetail()
+        savedStateHandle.get<String>(Constants.PARAM_COIN_ID)?.let {
+            getCoinDetail(it)
+        }
     }
     private fun getCoinDetail(coinId: String) {
         getCoinUseCase(coinId).onEach { result ->

@@ -31,12 +31,12 @@ class CoinDetailViewModel @Inject constructor(
                     _state.value = CoinListState(coins = result.data ?: emptyList())
                 }
                 is Resource.Error -> {
-                    _state.value = CoinListState(
+                    _state.value = CoinDetailState(
                         error = result.message ?: "An unexpected error occurred"
                     )
                 }
                 is Resource.Loading -> {
-                    _state.value = CoinListState(isLoading = true)
+                    _state.value = CoinDetailState(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)

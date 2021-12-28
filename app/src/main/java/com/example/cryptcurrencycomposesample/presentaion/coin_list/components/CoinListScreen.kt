@@ -21,7 +21,7 @@ fun CoinListScreen(
                 CoinListItem(
                     coin = coin,
                     onItemClick = {
-                        
+
                     }
                 )
             }

@@ -2,6 +2,7 @@ package com.example.cryptcurrencycomposesample.presentaion.coin_list.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -42,7 +43,7 @@ fun CoinListScreen(
                 color = MaterialTheme.colors.error,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(horizontal = 20.dp)
                     .align(Alignment.Center)
             )

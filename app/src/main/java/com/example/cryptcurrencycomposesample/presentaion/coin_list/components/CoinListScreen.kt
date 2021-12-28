@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.cryptcurrencycomposesample.presentaion.Screen
 
 @Composable
 fun CoinListScreen(
@@ -21,7 +22,9 @@ fun CoinListScreen(
                 CoinListItem(
                     coin = coin,
                     onItemClick = {
-
+                        navController.navigate(
+                            Screen.CoinDetailScreen.route + "/${coin.id}"
+                        )
                     }
                 )
             }

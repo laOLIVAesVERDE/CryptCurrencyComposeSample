@@ -46,6 +46,12 @@ fun CoinListScreen(
                                 .weight(2f)
                         )
                     }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = it.description,
+                        style = MaterialTheme.typography.body2,
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
                 }
             }
         }

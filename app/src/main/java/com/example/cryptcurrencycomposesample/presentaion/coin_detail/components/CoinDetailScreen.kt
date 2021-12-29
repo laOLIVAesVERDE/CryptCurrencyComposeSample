@@ -31,7 +31,16 @@ fun CoinListScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-
+                        Text(
+                            text = "${it.rank}. ${it.name} (${it.symbol})",
+                            style = MaterialTheme.typography.h2,
+                            modifier = Modifier.weight(8f)
+                        )
+                        Text(
+                            text = "${it.rank}. ${it.name} (${it.symbol})",
+                            style = MaterialTheme.typography.h2,
+                            modifier = Modifier.weight(8f)
+                        )
                     }
                 }
             }

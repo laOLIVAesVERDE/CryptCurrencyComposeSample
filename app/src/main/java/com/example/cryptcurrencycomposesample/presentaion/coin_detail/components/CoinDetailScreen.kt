@@ -20,8 +20,7 @@ import com.example.cryptcurrencycomposesample.presentaion.Screen
 
 @Composable
 fun CoinListScreen(
-    navController: NavController,
-    viewModel: CoinListViewModel = hiltViewModel()
+    viewModel: CoinDetailViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {

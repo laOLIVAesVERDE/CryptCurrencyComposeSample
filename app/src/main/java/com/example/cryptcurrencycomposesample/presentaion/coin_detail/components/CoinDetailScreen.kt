@@ -24,16 +24,18 @@ fun CoinListScreen(
 ) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(state.coins) { coin ->
-                CoinListItem(
-                    coin = coin,
-                    onItemClick = {
-                        navController.navigate(
-                            Screen.CoinDetailScreen.route + "/${it.id}"
-                        )
-                    }
-                )
+        state.coinDetail?.let {
+            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                items(state.coins) { coin ->
+                    CoinListItem(
+                        coin = coin,
+                        onItemClick = {
+                            navController.navigate(
+                                Screen.CoinDetailScreen.route + "/${it.id}"
+                            )
+                        }
+                    )
+                }
             }
         }
         if (state.error.isNotBlank()) {

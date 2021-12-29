@@ -8,7 +8,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -37,9 +40,13 @@ fun CoinListScreen(
                             modifier = Modifier.weight(8f)
                         )
                         Text(
-                            text = "${it.rank}. ${it.name} (${it.symbol})",
-                            style = MaterialTheme.typography.h2,
-                            modifier = Modifier.weight(8f)
+                            text = if (it.isActive) "active" else "inactive",
+                            color = if (it.isActive) Color.Green else Color.Red,
+                            fontStyle = FontStyle.Italic,
+                            textAlign = TextAlign.End,
+                            modifier = Modifier
+                                .align(CenterVertically)
+                                .weight(2f)
                         )
                     }
                 }

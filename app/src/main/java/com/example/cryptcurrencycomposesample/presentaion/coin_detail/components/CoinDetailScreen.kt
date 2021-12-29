@@ -1,9 +1,6 @@
 package com.example.cryptcurrencycomposesample.presentaion.coin_detail.components
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
@@ -25,16 +22,17 @@ fun CoinListScreen(
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
         state.coinDetail?.let {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(state.coins) { coin ->
-                    CoinListItem(
-                        coin = coin,
-                        onItemClick = {
-                            navController.navigate(
-                                Screen.CoinDetailScreen.route + "/${it.id}"
-                            )
-                        }
-                    )
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(20.dp)
+            ) {
+                item {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+
+                    }
                 }
             }
         }

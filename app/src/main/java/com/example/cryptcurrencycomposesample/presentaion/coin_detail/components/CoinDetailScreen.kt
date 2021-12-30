@@ -63,8 +63,11 @@ fun CoinListScreen(
                         crossAxisSpacing = 10.dp,
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        
+                        it.tags.forEach { tag ->
+                            CoinTag(tag = tag)
+                        }
                     }
+                    Spacer(modifier = Modifier.height(15.dp))
                 }
             }
         }

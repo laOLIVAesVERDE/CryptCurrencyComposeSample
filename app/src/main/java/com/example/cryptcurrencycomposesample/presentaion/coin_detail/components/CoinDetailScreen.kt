@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
 fun CoinListScreen(
@@ -57,6 +58,13 @@ fun CoinListScreen(
                         style = MaterialTheme.typography.h3
                     )
                     Spacer(modifier = Modifier.height(15.dp))
+                    FlowRow(
+                        mainAxisSpacing = 10.dp,
+                        crossAxisSpacing = 10.dp,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        
+                    }
                 }
             }
         }
